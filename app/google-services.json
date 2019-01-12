@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "197384677107",
+    "firebase_url": "https://impossible-app.firebaseio.com",
+    "project_id": "impossible-app",
+    "storage_bucket": "impossible-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197384677107:android:03f7af1661ac631d",
+        "android_client_info": {
+          "package_name": "com.example.plabon.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197384677107-2ardjqal3r6791gktk2ocbtmpr2jdft8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plabon.myapplication",
+            "certificate_hash": "fa22642e77ade1cb28ff078b4e7fd455d0b983e2"
+          }
+        },
+        {
+          "client_id": "197384677107-svldjti5k2um9f3hk2f00nc50ohejles.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClOgeqHZxjZfZvly1nPMYHJA-4CYZTGYQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197384677107-svldjti5k2um9f3hk2f00nc50ohejles.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
