@@ -1,6 +1,4 @@
 package com.example.plabon.myapplication;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class User {
     private String email;
@@ -11,19 +9,34 @@ public class User {
     private String dpURL;
     private String isModerator;
     private String bio;
+    private String Location;
+    private String foot;
 
     public User() {
     }
 
-    public User(String email, String name, String position, String jerseynumber, String phoneNumber, String dpURL, String isModerator, String bio) {
+    public User(String email, String name, String position, String jerseynumber, String phoneNumber,String Location,String foot, String dpURL, String isModerator, String bio) {
         this.email = email;
         this.name = name;
         this.position = position;
         this.jerseynumber = jerseynumber;
         this.phoneNumber = phoneNumber;
+        this.Location = Location;
+        this.foot = foot;
         this.dpURL = dpURL;
         this.isModerator = isModerator;
         this.bio = bio;
+    }
+    public void setLocation(String location){this.Location= location;}
+    public String getLocation(){return Location;}
+
+    public void setFoot(String foot)
+    {
+        this.foot = foot;
+    }
+    public String getFoot()
+    {
+        return foot;
     }
 
     public void setBio(String bio) {

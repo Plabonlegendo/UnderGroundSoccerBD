@@ -27,8 +27,11 @@ public class Register extends Activity {
     EditText position;
     EditText jerseynumber;
     EditText email;
+    EditText Location;
     EditText phoneNumber;
+    EditText Playerfoot;
     Button doneButton;
+    Button cancel;
 
     private DatabaseReference databaseReference;
     private FirebaseAuth userAuthentication;
@@ -36,23 +39,32 @@ public class Register extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_sign_up);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         userAuthentication = FirebaseAuth.getInstance();
 
-        password = findViewById(R.id.passwordfield);
-        fullname = findViewById(R.id.Name);
-        position = findViewById(R.id.Position);
-        jerseynumber = findViewById(R.id.jersey_number);
-        email = findViewById(R.id.Email);
-        phoneNumber = findViewById(R.id.Phone_number);
-        doneButton = findViewById(R.id.register_button);
+        password = findViewById(R.id.PasswordEditText);
+        fullname = findViewById(R.id.PlayerNameEditText);
+        position = findViewById(R.id.PlayerPositionEditText);
+        jerseynumber = findViewById(R.id.PlayerNumberEditText);
+        Location = findViewById(R.id.PlayerLocationEditText);
+        email = findViewById(R.id.PlayerEmailEditText);
+        Playerfoot = findViewById(R.id.PlayerFootEditText);
+        phoneNumber = findViewById(R.id.PlayerPhoneEditText);
+        doneButton = findViewById(R.id.idsubmitButton);
+        cancel = findViewById(R.id.idcancelButton);
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addPlayer();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Register.this,AuthActivity.class));
             }
         });
     }
@@ -66,6 +78,9 @@ public class Register extends Activity {
         final String sposition = position.getText().toString().trim();
         final String sjerseynumber = jerseynumber.getText().toString().trim();
         final String semail = email.getText().toString().trim();
+        final String sLocation = Location.getText().toString().trim();
+        final String sfoot = Playerfoot.getText().toString().trim();
+
         final String sphoneNumber;
 
         if(TextUtils.isEmpty(phoneNumber.getText().toString().trim())) sphoneNumber = "null";
@@ -93,7 +108,7 @@ public class Register extends Activity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                User user = new User(semail, sfullname,sposition,sjerseynumber,sphoneNumber,"https://i.kym-cdn.com/entries/icons/original/000/003/619/ForeverAlone.jpg","false","Nothing yet.");
+                                User user = new User(semail, sfullname,sposition,sjerseynumber,sphoneNumber,sLocation,sfoot,"https://i.kym-cdn.com/entries/icons/original/000/003/619/ForeverAlone.jpg","false","Nothing yet.");
                                 //com.example.plabon.myapplication.User user =
                                 databaseReference.child(semail.replace('.','&')).setValue(user);
                                 FirebaseUser hmmttuser = userAuthentication.getCurrentUser();
