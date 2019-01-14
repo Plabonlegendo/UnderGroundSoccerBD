@@ -21,7 +21,10 @@
         <activity android:name=".ResetpasswordActivity" />
         <activity android:name=".Organizerform" />
         <activity android:name=".Eventform" />
-        <activity android:name=".Frontpage"></activity>
+        <activity android:name=".Frontpage" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:label="@string/title_activity_main_menu"></activity>
     </application>
 
 </manifest>

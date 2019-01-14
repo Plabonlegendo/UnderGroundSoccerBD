@@ -9,7 +9,9 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
@@ -31,10 +33,10 @@ public class Eventform extends Activity {
     EditText HostEmail;
     EditText Eventlocation;
     EditText phonenumber;
-    EditText Startingtime;
-    EditText Startingdate;
-    EditText Endingtime;
-    EditText Endingdate;
+    TimePicker Startingtime;
+    DatePicker Startingdate;
+    TimePicker Endingtime;
+    DatePicker Endingdate;
     EditText passfield;
 
     Button submit;
@@ -57,12 +59,12 @@ public class Eventform extends Activity {
         Eventname = findViewById(R.id.EventNameEditText);
        // Hostname = findViewById(R.id.hostNameEditText);
         HostEmail = findViewById(R.id.EventEmailEditText);
-        Eventlocation = findViewById(R.id.EventlocationEditText);
+        Eventlocation = findViewById(R.id.EventLocationEditText);
         phonenumber = findViewById(R.id.EventPhoneEditText);
-        Startingtime = findViewById(R.id.EventStartEditText);
-        Startingdate = findViewById(R.id.EventStartDateEditText);
-        Endingdate = findViewById(R.id.EventEndDateEditText);
-        Endingtime = findViewById(R.id.EventEndEditText);
+        Startingtime = findViewById(R.id.StartTimeEditText);
+        Startingdate = findViewById(R.id.StartDateEditText);
+        Endingdate = findViewById(R.id.EndDateEditText);
+        Endingtime = findViewById(R.id.EndTimeEditText);
         passfield = findViewById(R.id.eventPasswordEditText);
         submit = findViewById(R.id.submitButton);
         cancel = findViewById(R.id.cancelButton);
@@ -87,10 +89,7 @@ public class Eventform extends Activity {
         final String shostemail = HostEmail.getText().toString().trim();
         final String seventlocation = Eventlocation.getText().toString().trim();
         final String sphonenumber ;
-        final String sstartingtime = Startingtime.getText().toString().trim();
-        final String sstartingdate = Startingdate.getText().toString().trim();
-        final String sendingdate = Endingdate.getText().toString().trim();
-        final String sendingtime = Endingtime.getText().toString().trim();
+
         final String spassfield = passfield.getText().toString().trim();
 
         if(TextUtils.isEmpty(phonenumber.getText().toString().trim())) sphonenumber = "null";
@@ -115,9 +114,6 @@ public class Eventform extends Activity {
             return;
         }
 
-        if(TextUtils.isEmpty(spassfield) || TextUtils.isEmpty(sendingdate) || TextUtils.isEmpty(sstartingdate) || TextUtils.isEmpty(shostemail) || TextUtils.isEmpty(seventlocation) ||  TextUtils.isEmpty(sstartingtime) || TextUtils.isEmpty(sendingtime)){
-            Toast.makeText(this, "Please fill out all the sections",Toast.LENGTH_LONG).show();
-        }
 
         else
         {
