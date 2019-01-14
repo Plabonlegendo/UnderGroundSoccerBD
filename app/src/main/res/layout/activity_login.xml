@@ -8,13 +8,15 @@
     tools:context=".AuthActivity">
 
     <LinearLayout
+        android:id="@+id/gravity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
+        android:gravity="bottom"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="176dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="176dp">
 
         <TextView
             android:id="@+id/AppName"
@@ -46,7 +48,6 @@
             android:hint="Enter password"
             android:inputType="textPassword"
             android:textSize="24sp" />
-
 
 
         <LinearLayout
@@ -82,14 +83,6 @@
 
             />
 
-        <Button
-            android:id="@+id/organizerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:gravity="top|bottom|center"
-            android:text="Event Organizer Mode"
-            android:textSize="24sp" />
 
     </LinearLayout>
 

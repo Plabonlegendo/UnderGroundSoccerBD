@@ -54,18 +54,12 @@ public class AuthActivity extends Activity {
             btnSignIn = (Button) findViewById(R.id.signInButton);
             btnSignUp = (Button) findViewById(R.id.signUpButton);
             btnForgetPassword = findViewById(R.id.forgotPasswordButton);
-            btnOrganizerMode = findViewById(R.id.organizerButton);
+
             //btnAddItems = (Button) findViewById(R.id.add_item_screen);
 
             mAuth = FirebaseAuth.getInstance();
             loginPageDatabaseRef = FirebaseDatabase.getInstance().getReference("users");
 
-            btnOrganizerMode.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(AuthActivity.this,Organizerform.class));
-                }
-            });
 
             btnForgetPassword.setOnClickListener(new View.OnClickListener() {
                 @Override
