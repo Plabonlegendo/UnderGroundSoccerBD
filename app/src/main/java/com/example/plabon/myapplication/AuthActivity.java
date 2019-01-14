@@ -147,7 +147,7 @@ public class AuthActivity extends Activity {
         final FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
 
-            if(currentUser.isEmailVerified()){
+           /* if(currentUser.isEmailVerified()){
 
                 Intent intent = new Intent(AuthActivity.this,Register.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -157,7 +157,7 @@ public class AuthActivity extends Activity {
 
             }else{
                 Toast.makeText(AuthActivity.this,"Verify the Email And Login",Toast.LENGTH_LONG).show();
-            }
+            }*/
         }
     }
 

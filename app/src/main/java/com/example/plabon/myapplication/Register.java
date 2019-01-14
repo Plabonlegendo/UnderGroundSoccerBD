@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +33,8 @@ public class Register extends Activity {
     EditText Playerfoot;
     Button doneButton;
     Button cancel;
+    Button visibilty;
+    TextView textjersey, textposition, textfoot;
 
     private DatabaseReference databaseReference;
     private FirebaseAuth userAuthentication;
@@ -54,6 +57,30 @@ public class Register extends Activity {
         phoneNumber = findViewById(R.id.PlayerPhoneEditText);
         doneButton = findViewById(R.id.idsubmitButton);
         cancel = findViewById(R.id.idcancelButton);
+        visibilty = findViewById(R.id.Visibility);
+
+        textjersey = findViewById(R.id.textviewPreferredjersey);
+        textposition = findViewById(R.id.textviewPreferredpos);
+        textfoot = findViewById(R.id.textViewPreferredfoot);
+
+        jerseynumber.setVisibility(View.GONE);
+        position.setVisibility(View.GONE);
+        Playerfoot.setVisibility(View.GONE);
+        textjersey.setVisibility(View.GONE);
+        textfoot.setVisibility(View.GONE);
+        textposition.setVisibility(View.GONE);
+
+        visibilty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jerseynumber.setVisibility(View.VISIBLE);
+                position.setVisibility(View.VISIBLE);
+                Playerfoot.setVisibility(View.VISIBLE);
+                textjersey.setVisibility(View.VISIBLE);
+                textfoot.setVisibility(View.VISIBLE);
+                textposition.setVisibility(View.VISIBLE);
+            }
+        });
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
