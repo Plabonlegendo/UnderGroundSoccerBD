@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:padding="10dp"
-tools:context=".Register">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".Register">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
@@ -118,6 +119,15 @@ tools:context=".Register">
                 android:hint="+8801XXXXXXXXX"
                 android:inputType="phone" />
         </LinearLayout>
+
+        <RadioButton
+            android:id="@+id/Visibility"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:checked="false"
+
+            android:text="I am a Player" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -234,18 +244,17 @@ tools:context=".Register">
                 android:textStyle="bold"
                 tools:textSize="18sp" />
 
-            <RadioGroup
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </RadioGroup>
+                android:layout_height="wrap_content"
+                android:background="@color/common_google_signin_btn_text_dark_default" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/idcancelButton"
@@ -254,12 +263,6 @@ tools:context=".Register">
                 android:layout_weight="1"
                 android:text="Cancel" />
 
-            <Button
-                android:id="@+id/Visibility"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Visibilty" />
 
             <Button
                 android:id="@+id/idsubmitButton"
