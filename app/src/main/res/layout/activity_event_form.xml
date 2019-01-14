@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".Eventform">
+    tools:context=".OrganizeMenuActivity">
 
 
     <LinearLayout
@@ -109,7 +109,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/EventlocationEditText"
+                android:id="@+id/EventLocationEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -141,49 +141,90 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:text="Event Starting Date"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-            <TextView
+        <DatePicker
+            android:id="@+id/StartDateEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Event Starting time:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/EventStartEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="datetime" />
-        </LinearLayout>
 
-        <LinearLayout
+
+
+        <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:text="Event Starting time"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
-            <TextView
+        <TimePicker
+            android:id="@+id/StartTimeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="time"/>
 
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Event Ending time:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/EventEndEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="datetime" />
-        </LinearLayout>
+
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Event Ending Date"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <DatePicker
+            android:id="@+id/EndDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date" />
+
+
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Event Ending time"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TimePicker
+            android:id="@+id/EndTimeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="time"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
