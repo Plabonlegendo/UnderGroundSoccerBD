@@ -53,21 +53,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Host Name:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/hostNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -140,6 +125,28 @@
                 android:inputType="phone" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Event Starting Date:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/EventStartDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="datetime" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -173,6 +180,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
+                android:text="Event Ending Date:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/EventEndDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="datetime" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:text="Event Ending time:"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -190,43 +219,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Enter Password:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/eventPasswordEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Upload Fixture: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@android:drawable/picture_frame" />
 
 
         </LinearLayout>
@@ -236,21 +234,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Best player name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/bestPlayerEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -258,21 +241,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Top scorrer name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/topScorerEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -280,21 +248,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Best Defender name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/bestDefenderEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -302,21 +255,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Best GoalKeeper name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/bestGKEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout

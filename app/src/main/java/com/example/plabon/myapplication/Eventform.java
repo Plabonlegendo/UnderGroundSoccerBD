@@ -1,6 +1,7 @@
 package com.example.plabon.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Pattern;
+
 public class Eventform extends Activity {
 
     EditText Eventname;
@@ -29,7 +32,9 @@ public class Eventform extends Activity {
     EditText Eventlocation;
     EditText phonenumber;
     EditText Startingtime;
+    EditText Startingdate;
     EditText Endingtime;
+    EditText Endingdate;
     EditText passfield;
 
     Button submit;
@@ -45,16 +50,18 @@ public class Eventform extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_form);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        databaseReference = FirebaseDatabase.getInstance().getReference("events");
         userAuthentication = FirebaseAuth.getInstance();
 
 
         Eventname = findViewById(R.id.EventNameEditText);
-        Hostname = findViewById(R.id.hostNameEditText);
+       // Hostname = findViewById(R.id.hostNameEditText);
         HostEmail = findViewById(R.id.EventEmailEditText);
         Eventlocation = findViewById(R.id.EventlocationEditText);
         phonenumber = findViewById(R.id.EventPhoneEditText);
         Startingtime = findViewById(R.id.EventStartEditText);
+        Startingdate = findViewById(R.id.EventStartDateEditText);
+        Endingdate = findViewById(R.id.EventEndDateEditText);
         Endingtime = findViewById(R.id.EventEndEditText);
         passfield = findViewById(R.id.eventPasswordEditText);
         submit = findViewById(R.id.submitButton);
@@ -70,12 +77,19 @@ public class Eventform extends Activity {
     public void addevent(){
         final FirebaseUser hmmuser = userAuthentication.getCurrentUser();
 
+        if(hmmuser != null)
+        {
+            String EMAIL= userAuthentication.getCurrentUser().getEmail();
+        }
+
         final String seventname = Eventname.getText().toString().trim();
-        final String shostname = Hostname.getText().toString().trim();
+       // final String shostname = Hostname.getText().toString().trim();
         final String shostemail = HostEmail.getText().toString().trim();
         final String seventlocation = Eventlocation.getText().toString().trim();
         final String sphonenumber ;
         final String sstartingtime = Startingtime.getText().toString().trim();
+        final String sstartingdate = Startingdate.getText().toString().trim();
+        final String sendingdate = Endingdate.getText().toString().trim();
         final String sendingtime = Endingtime.getText().toString().trim();
         final String spassfield = passfield.getText().toString().trim();
 
@@ -88,6 +102,12 @@ public class Eventform extends Activity {
             HostEmail.requestFocus();
             return;
         }
+         /*Pattern.compile(DATE_PATTERN).matcher(Birthday);
+
+//Birthday validator
+    else if (! Pattern.compile(DATE_PATTERN).matcher(Birthday).matches()) {
+            Toast.makeText(getApplicationContext(), "Invalid Birthday!", Toast.LENGTH_SHORt).show();
+        }*/
         if(spassfield.length() < 8){
             //Toast.makeText(this,"Password has to be at least 8 chars",Toast.LENGTH_LONG).show();
             passfield.setError("Password has to be at least 8 chars");
@@ -95,7 +115,7 @@ public class Eventform extends Activity {
             return;
         }
 
-        if(TextUtils.isEmpty(spassfield) || TextUtils.isEmpty(shostname) || TextUtils.isEmpty(shostemail) || TextUtils.isEmpty(seventlocation) || TextUtils.isEmpty(sstartingtime) || TextUtils.isEmpty(sendingtime)){
+        if(TextUtils.isEmpty(spassfield) || TextUtils.isEmpty(sendingdate) || TextUtils.isEmpty(sstartingdate) || TextUtils.isEmpty(shostemail) || TextUtils.isEmpty(seventlocation) ||  TextUtils.isEmpty(sstartingtime) || TextUtils.isEmpty(sendingtime)){
             Toast.makeText(this, "Please fill out all the sections",Toast.LENGTH_LONG).show();
         }
 

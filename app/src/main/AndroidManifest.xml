@@ -20,7 +20,8 @@
         <activity android:name=".Register" />
         <activity android:name=".ResetpasswordActivity" />
         <activity android:name=".Organizerform" />
-        <activity android:name=".Eventform"></activity>
+        <activity android:name=".Eventform" />
+        <activity android:name=".Frontpage"></activity>
     </application>
 
 </manifest>

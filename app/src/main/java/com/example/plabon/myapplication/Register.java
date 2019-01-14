@@ -35,8 +35,9 @@ public class Register extends Activity {
     EditText Playerfoot;
     Button doneButton;
     Button cancel;
-    RadioButton visibilty;
+    RadioButton visibilty,invisibility;
     TextView textjersey, textposition, textfoot;
+    TextView textlocation;
 
     private DatabaseReference databaseReference;
     private FirebaseAuth userAuthentication;
@@ -59,31 +60,64 @@ public class Register extends Activity {
         phoneNumber = findViewById(R.id.PlayerPhoneEditText);
         doneButton = findViewById(R.id.idsubmitButton);
         cancel = findViewById(R.id.idcancelButton);
-        visibilty = findViewById(R.id.Visibility);
+        visibilty =(RadioButton) findViewById(R.id.Visibility);
+        invisibility = findViewById(R.id.InVisibility);
+
+        invisibility.setChecked(true);
 
         textjersey = findViewById(R.id.textviewPreferredjersey);
         textposition = findViewById(R.id.textviewPreferredpos);
         textfoot = findViewById(R.id.textViewPreferredfoot);
+        textlocation = findViewById(R.id.textViewlocation);
 
+        Location.setVisibility(View.GONE);
         jerseynumber.setVisibility(View.GONE);
         position.setVisibility(View.GONE);
         Playerfoot.setVisibility(View.GONE);
         textjersey.setVisibility(View.GONE);
         textfoot.setVisibility(View.GONE);
         textposition.setVisibility(View.GONE);
+        textlocation.setVisibility(View.GONE);
+
+        invisibility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RadioButton radioButton = (RadioButton) v;
+                if(radioButton.isChecked())
+                {
+                    Location.setVisibility(View.GONE);
+                    jerseynumber.setVisibility(View.GONE);
+                    position.setVisibility(View.GONE);
+                    Playerfoot.setVisibility(View.GONE);
+                    textjersey.setVisibility(View.GONE);
+                    textfoot.setVisibility(View.GONE);
+                    textposition.setVisibility(View.GONE);
+                    textlocation.setVisibility(View.GONE);
+                    visibilty.setChecked(false);
+                }
+            }
+        });
 
         visibilty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RadioButton radioButton = (RadioButton) v;
+                if (radioButton.isChecked()){
+                    Location.setVisibility(View.VISIBLE);
                 jerseynumber.setVisibility(View.VISIBLE);
                 position.setVisibility(View.VISIBLE);
                 Playerfoot.setVisibility(View.VISIBLE);
+                textlocation.setVisibility(View.VISIBLE);
                 textjersey.setVisibility(View.VISIBLE);
                 textfoot.setVisibility(View.VISIBLE);
                 textposition.setVisibility(View.VISIBLE);
-                visibilty.isChecked();
+                invisibility.setChecked(false);
+            }
+
             }
         });
+
+
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,16 +139,28 @@ public class Register extends Activity {
 
         final String spassword = password.getText().toString().trim();
         final String sfullname = fullname.getText().toString().trim();
-        final String sposition = position.getText().toString().trim();
-        final String sjerseynumber = jerseynumber.getText().toString().trim();
+        final String sposition ;
+        final String sjerseynumber ;
         final String semail = email.getText().toString().trim();
-        final String sLocation = Location.getText().toString().trim();
-        final String sfoot = Playerfoot.getText().toString().trim();
+        final String sLocation ;
+        final String sfoot ;
 
         final String sphoneNumber;
 
         if(TextUtils.isEmpty(phoneNumber.getText().toString().trim())) sphoneNumber = "null";
         else sphoneNumber = phoneNumber.getText().toString().trim();
+
+        if(TextUtils.isEmpty(jerseynumber.getText().toString().trim())) sjerseynumber = "null";
+        else sjerseynumber = jerseynumber.getText().toString().trim();
+
+        if(TextUtils.isEmpty(Location.getText().toString().trim())) sLocation = "null";
+        else sLocation = Location.getText().toString().trim();
+
+        if(TextUtils.isEmpty(Playerfoot.getText().toString().trim())) sfoot = "null";
+        else sfoot = Playerfoot.getText().toString().trim();
+
+        if(TextUtils.isEmpty(position.getText().toString().trim())) sposition = "null";
+        else sposition = position.getText().toString().trim();
 
         if(!Patterns.EMAIL_ADDRESS.matcher(semail).matches()){
             //Toast.makeText(this,"Please input Email Correctly",Toast.LENGTH_LONG).show();
