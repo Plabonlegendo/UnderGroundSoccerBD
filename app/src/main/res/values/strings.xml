@@ -18,5 +18,6 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_event_form">EventFormActivity</string>
     <string name="title_activity_forgot_password">Sign in</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
 
 </resources>
