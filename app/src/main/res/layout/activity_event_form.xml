@@ -53,21 +53,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Host Name:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/hostNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -152,12 +137,17 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <DatePicker
-            android:id="@+id/StartDateEditText"
-            android:layout_width="wrap_content"
+        <TextView
+
+            android:id="@+id/mstartdate"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+            android:gravity="center_vertical"
+            android:text="Select Date"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
 
@@ -174,15 +164,17 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <TimePicker
-            android:id="@+id/StartTimeEditText"
+        <TextView
+
+            android:id="@+id/Starttime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time"/>
-
-
-
+            android:gravity="center_vertical"
+            android:text="Select time"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
         <TextView
@@ -196,12 +188,17 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <DatePicker
-            android:id="@+id/EndDateEditText"
+        <TextView
+
+            android:id="@+id/menddate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
+            android:gravity="center_vertical"
+            android:text="Select Date"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
 
@@ -217,13 +214,17 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <TimePicker
-            android:id="@+id/EndTimeEditText"
+        <TextView
+
+            android:id="@+id/endtime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time"/>
-
+            android:gravity="center_vertical"
+            android:text="Select time"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
         <LinearLayout
@@ -231,43 +232,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Enter Password:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/eventPasswordEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Upload Fixture: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@android:drawable/picture_frame" />
 
 
         </LinearLayout>
@@ -277,21 +247,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Best player name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/bestPlayerEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -299,21 +254,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Top scorrer name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/topScorerEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -321,21 +261,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Best Defender name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/bestDefenderEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -343,21 +268,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Best GoalKeeper name: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/bestGKEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
