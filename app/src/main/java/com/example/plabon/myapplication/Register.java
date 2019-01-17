@@ -8,20 +8,29 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Register extends Activity {
 
@@ -36,10 +45,11 @@ public class Register extends Activity {
     Button doneButton;
     Button cancel;
     RadioButton visibilty,invisibility;
-    TextView textjersey, textposition, textfoot;
+    TextView textjersey, textposition, textfoot,teamnames;
     TextView textlocation;
+    Spinner team_list;
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference ,teamref;
     private FirebaseAuth userAuthentication;
 
     @Override
@@ -48,6 +58,7 @@ public class Register extends Activity {
         setContentView(R.layout.activity_sign_up);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        teamref = FirebaseDatabase.getInstance().getReference("Teams");
         userAuthentication = FirebaseAuth.getInstance();
 
         password = findViewById(R.id.PasswordEditText);
@@ -58,6 +69,8 @@ public class Register extends Activity {
         email = findViewById(R.id.PlayerEmailEditText);
         Playerfoot = findViewById(R.id.PlayerFootEditText);
         phoneNumber = findViewById(R.id.PlayerPhoneEditText);
+        team_list =(Spinner) findViewById(R.id.Teamlist);
+        teamnames = findViewById(R.id.Teamtextview);
         doneButton = findViewById(R.id.idsubmitButton);
         cancel = findViewById(R.id.idcancelButton);
         visibilty =(RadioButton) findViewById(R.id.Visibility);
@@ -78,6 +91,8 @@ public class Register extends Activity {
         textfoot.setVisibility(View.GONE);
         textposition.setVisibility(View.GONE);
         textlocation.setVisibility(View.GONE);
+        teamnames.setVisibility(View.GONE);
+        team_list.setVisibility(View.GONE);
 
         invisibility.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +108,8 @@ public class Register extends Activity {
                     textfoot.setVisibility(View.GONE);
                     textposition.setVisibility(View.GONE);
                     textlocation.setVisibility(View.GONE);
+                    teamnames.setVisibility(View.GONE);
+                    team_list.setVisibility(View.GONE);
                     visibilty.setChecked(false);
                 }
             }
@@ -111,8 +128,36 @@ public class Register extends Activity {
                 textjersey.setVisibility(View.VISIBLE);
                 textfoot.setVisibility(View.VISIBLE);
                 textposition.setVisibility(View.VISIBLE);
-                invisibility.setChecked(false);
+                teamnames.setVisibility(View.VISIBLE);
+                team_list.setVisibility(View.VISIBLE);
+
+                    invisibility.setChecked(false);
             }
+
+            }
+        });
+
+        teamref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Is better to use a List, because you don't know the size
+                // of the iterator returned by dataSnapshot.getChildren() to
+                // initialize the array
+                final List<String> teams = new ArrayList<String>();
+
+                for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
+                    String teamName = areaSnapshot.getValue(String.class);
+                    teams.add(teamName);
+                }
+
+                //Spinner areaSpinner = (Spinner) findViewById(R.id.spinner);
+                ArrayAdapter<String> areasAdapter = new ArrayAdapter<String>(Register.this, android.R.layout.simple_spinner_item, teams);
+                areasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                team_list.setAdapter(areasAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.deser.std.FromStringDeserializer;
 public class MainMenuActivity extends Activity {
 
     Button EventHostMenu;
+    Button Playerprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class MainMenuActivity extends Activity {
         setContentView(R.layout.activity_main_menu);
 
         EventHostMenu = findViewById(R.id.EventHostButton);
+        Playerprofile = findViewById(R.id.profileButton);
 
         EventHostMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +27,13 @@ public class MainMenuActivity extends Activity {
                 startActivity(new Intent(MainMenuActivity.this,Frontpage.class));
             }
         });
+        Playerprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenuActivity.this,Showuser.class));
+            }
+        });
+
     }
 
 }
