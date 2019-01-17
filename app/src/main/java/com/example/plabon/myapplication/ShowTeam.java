@@ -1,0 +1,149 @@
+package com.example.plabon.myapplication;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+
+public class ShowTeam extends Activity {
+    private static final String TAG = "ShowTeam";
+
+    //add Firebase Database stuff
+    private FirebaseAuth userAuthentication;
+    private FirebaseDatabase mFirebaseDatabase;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference myRef;
+    private DatabaseReference myRef2;
+    private  String userID;
+    private TextView text;
+    ArrayList<String> array  = new ArrayList<>();
+    ListView listView;
+
+
+    private ListView mListView;
+    Bundle bundle;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_team);
+        listView=(ListView) findViewById(R.id.listview);
+        bundle = getIntent().getExtras();
+
+        Log.d(TAG,"Dhuksi\n");
+
+        mAuth = FirebaseAuth.getInstance();
+        userAuthentication = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference("user_team");
+        FirebaseUser user = mAuth.getCurrentUser();
+        userID = user.getUid();
+
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    //toastMessage("Successfully signed in with: " + user.getEmail());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                    //toastMessage("Successfully signed out.");
+                }
+                // ...
+            }
+        };
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+
+
+
+    private void showData(DataSnapshot dataSnapshot) {
+
+        String myTeamName = bundle.getString("haha");
+        Log.d(TAG, "showData: name:*" +myTeamName+"*");
+
+
+
+
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+            String str = (String)ds.child("teamname").getValue(); //set the name
+            if(str.equals(myTeamName)){
+
+                String achi= (String)ds.child("name").getValue();
+                array.add(achi);
+                Log.d(TAG, "showData: name:*" +achi+"*");
+            }
+
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+        listView.setAdapter(adapter);
+
+    }
+
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+
+
+    /**
+     * customizable toast
+     * @param message
+     */
+    private void toastMessage(String message){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
+}
