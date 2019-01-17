@@ -2,9 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/padd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     tools:context=".AuthActivity">
 
     <LinearLayout
@@ -12,19 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:gravity="bottom"
+        android:background="#03382c"
+        android:gravity="center_vertical"
         android:orientation="vertical"
+        android:padding="10dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="176dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/AppName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FUTBAL"
+            android:fontFamily="@font/dayslater"
+            android:text="Football Underground"
+
             android:textAlignment="center"
-            android:textSize="70sp" />
+            android:textColor="@android:color/background_light"
+            android:textSize="65sp" />
 
 
         <EditText
@@ -32,10 +37,15 @@
             style="@android:style/Widget.Holo.Light.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
             android:ems="10"
             android:fitsSystemWindows="false"
+            android:fontFamily="@font/airstrikelaser"
             android:hint="Enter your mail ID"
             android:inputType="text"
+            android:paddingStart="5dp"
+            android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
 
@@ -44,9 +54,14 @@
             style="@android:style/Widget.Holo.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/background_light"
             android:ems="10"
+            android:fontFamily="@font/airstrikelaser"
             android:hint="Enter password"
             android:inputType="textPassword"
+            android:paddingStart="5dp"
+            android:textColor="@android:color/background_light"
             android:textSize="24sp" />
 
 
@@ -59,17 +74,23 @@
                 android:id="@+id/signUpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:fontFamily="@font/airstrikelaser"
                 android:text="Sign Up"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
 
             <Button
                 android:id="@+id/signInButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:background="@android:color/darker_gray"
+                android:fontFamily="@font/airstrikelaser"
                 android:text="Sign In"
-                android:textSize="24sp" />
+                android:textSize="28sp" />
         </LinearLayout>
 
         <Button
@@ -78,7 +99,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:fontFamily="@font/airstrikelaser"
             android:text="Forgot Password?"
+            android:textColor="@android:color/background_light"
             android:textStyle="italic"
 
             />

@@ -4,17 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:clipToPadding="false"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="188dp"
-        android:layout_height="159dp"
-        android:onClick="startauth"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#03382c"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        android:text="FOOTBLL UNDERGROUND
-"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="148dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:fontFamily="@font/dayslater"
+
+            android:onClick="startauth"
+            android:padding="10dp"
+
+            android:text="football underground"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="65dp"
+            app:layout_constraintBottom_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dayslater"
+            android:padding="10dp"
+            android:text="The Underground Football Community of Bangladesh"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/background_light"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/button5"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/darker_gray"
+            android:fontFamily="@font/airstrikelaser"
+            android:onClick="startauth"
+            android:padding="10dp"
+            android:text="tap to continue"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="40sp"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
