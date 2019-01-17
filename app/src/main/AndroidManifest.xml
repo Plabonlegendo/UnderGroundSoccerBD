@@ -24,7 +24,8 @@
         <activity android:name=".Frontpage" />
         <activity
             android:name=".MainMenuActivity"
-            android:label="@string/title_activity_main_menu"></activity>
+            android:label="@string/title_activity_main_menu" />
+        <activity android:name=".NewTeamForm" />
     </application>
 
 </manifest>
