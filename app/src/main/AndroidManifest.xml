@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Showuser"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +23,9 @@
         <activity android:name=".Organizerform" />
         <activity android:name=".Eventform" />
         <activity android:name=".Frontpage" />
-        <activity android:name=".Team" />
-        <activity android:name=".ShowTeam" />
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu" />
-        <activity android:name=".NewTeamForm" />
     </application>
 
 </manifest>
