@@ -88,6 +88,7 @@ public class Team extends Activity {
 
     private void showData(DataSnapshot dataSnapshot) {
 
+        Log.d(TAG, "show data te dhuksi");
         final FirebaseUser hmmuser = userAuthentication.getCurrentUser();
         Log.d(TAG, "showData: user: " + hmmuser);
         String eemail = "";
