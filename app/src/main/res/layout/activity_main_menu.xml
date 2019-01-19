@@ -8,27 +8,31 @@
     android:fillViewport="false"
     android:foregroundGravity="center_vertical"
     android:minHeight="141dp"
-    android:padding="10dp"
     tools:context=".MainMenuActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="#03382c"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/dayslater"
             android:text="FOOTBALL UNDERGROUND"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:textColor="@android:color/background_light"
+
+            android:textSize="55sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -36,20 +40,31 @@
                 android:id="@+id/profileButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:text="Profile" />
+                android:fontFamily="@font/airstrikelaser"
+                android:text="Profile"
+                android:textColor="@android:color/background_light"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/TeamButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="My Team" />
+                android:fontFamily="@font/airstrikelaser"
+                android:text="My Team"
+                android:textColor="@android:color/background_light"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -57,16 +72,26 @@
                 android:id="@+id/EventHostButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/airstrikelaser"
                 android:onClick="eventHostMenu"
-                android:text="Event Host Menu" />
+                android:text="Event Host Menu"
+                android:textColor="@android:color/background_light"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/EventButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="Event Feed" />
+                android:fontFamily="@font/airstrikelaser"
+                android:text="Event Feed"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:textSize="30sp" />
         </LinearLayout>
 
     </LinearLayout>
