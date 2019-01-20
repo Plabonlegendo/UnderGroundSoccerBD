@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,8 +37,8 @@ public class Showuser extends Activity {
     TextView location_value;
     TextView bio_value;
     ImageView profilePicture;
-    Button edit_profilePhoto_button;
-    Button toUserQuestion;
+    ImageButton edit_profilePhoto_button;
+    ImageButton toUserQuestion;
 
     String  userEmail,nowUser;
     User user;

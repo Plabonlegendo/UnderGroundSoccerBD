@@ -42,8 +42,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/airstrikelaser"
+
                 android:text="Profile"
+                android:fontFamily="@font/airstrikelaser"
                 android:textColor="@android:color/background_light"
                 android:textSize="30sp" />
 
@@ -75,7 +76,6 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/airstrikelaser"
-                android:onClick="eventHostMenu"
                 android:text="Event Host Menu"
                 android:textColor="@android:color/background_light"
                 android:textSize="30sp" />
