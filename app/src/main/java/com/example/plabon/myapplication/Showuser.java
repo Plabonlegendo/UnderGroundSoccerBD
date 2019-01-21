@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +26,6 @@ public class Showuser extends Activity {
     private FirebaseUser currentUser;
     private FirebaseAuth showSingleUserAuth;
     private DatabaseReference showSingleUserDatabaseRef,myref;
-    private DatabaseReference userQuestionDatabaseRef;
 
     TextView name_value;
     TextView email_value;
@@ -37,13 +35,13 @@ public class Showuser extends Activity {
     TextView location_value;
     TextView bio_value;
     ImageView profilePicture;
-    ImageButton edit_profilePhoto_button;
-    ImageButton toUserQuestion;
+    Button edit_profilePhoto_button;
+    Button edit_profile;
 
     String  userEmail,nowUser;
     User user;
 
-    ArrayList<String> userFiltered = new ArrayList<>();
+    //ArrayList<String> userFiltered = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +55,8 @@ public class Showuser extends Activity {
         location_value = findViewById(R.id.location_value);
         bio_value = findViewById(R.id.bio_value);
         profilePicture = findViewById(R.id.singleUser_profile_image);
-        edit_profilePhoto_button = findViewById(R.id.Edit_photo_button);
-        toUserQuestion = findViewById(R.id.toUserQuestions);
+        edit_profilePhoto_button = findViewById(R.id.editProfilepicture);
+        edit_profile = findViewById(R.id.Editprofile);
 
         showSingleUserAuth = FirebaseAuth.getInstance();
         currentUser = showSingleUserAuth.getCurrentUser();
@@ -96,6 +94,13 @@ public class Showuser extends Activity {
             }
         });
 
+        edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toEditProfilePicture();
+            }
+        });
+
         edit_profilePhoto_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,9 +111,9 @@ public class Showuser extends Activity {
     }
 
     public void toEditProfilePicture(){
-       /* Intent intent = new Intent(this,editUserPage.class);
-        intent.putExtra("showUser","users/"+nowUser.replace('.','&'));
-        startActivity(intent);*/
+        Intent intent = new Intent(this,Edituserprofile.class);
+      //  intent.putExtra("showUser","users/"+nowUser.replace('.','&'));
+        startActivity(intent);
     }
 
 

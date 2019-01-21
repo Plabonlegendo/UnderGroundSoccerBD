@@ -1,255 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+    android:layout_height="fill_parent">
 
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/bio_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editUserPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="169dp"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="102dp"
+        android:text="Bio :"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/phone_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editUserPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="149dp"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/editUserPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="133dp"
+        android:text="Phone :"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/roll_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editUserPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="68dp"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/roll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="205dp"
+        android:text="Jersey Number :"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/batch_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editUserPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="32dp"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/batch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="243dp"
+        android:text="Position"
+        android:textSize="14dp" />
+
+
+    <TextView
+        android:id="@+id/location_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editUserPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="111dp"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="168dp"
+        android:text="Location :"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:weightSum="10"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="260dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/singleUser_profile_image"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="10"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            app:civ_border_color="#000000"
-            app:civ_border_width="3dp" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/singleUser_profile_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="33dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="visible"
+        app:civ_border_color="#000000"
+        app:civ_border_width="3dp" />
 
-        <ImageButton
-            android:id="@+id/Edit_photo_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:background="#000000"
-            android:onClick="toEditProfilePicture"
-            android:text="Edit profile picture"
-            android:visibility="visible"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+    <Button
+        android:id="@+id/Edit_photo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="0dp"
+        android:onClick="toEditProfilePicture"
+        android:text="Edit profile"
+        android:visibility="invisible" />
 
-        <TextView
-            android:id="@+id/name_value"
-            android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/editUserPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="277dp"
+        android:text="Email :"
+        android:textSize="14dp" />
 
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/dopestyle"
-            android:text="talha Islam Zadid"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@android:color/background_light"
-            android:textSize="45sp" />
+    <TextView
+        android:id="@+id/email_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editUserPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="1dp"
+        android:textSize="14dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="1dp"
+        android:textSize="14dp" />
 
-            <TextView
-                android:id="@+id/bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="312dp"
+        android:text="Name :"
+        android:textSize="14dp" />
 
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Bio : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
+    <Button
+        android:id="@+id/Editprofile"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="11dp"
+        android:text="Edit profile" />
 
-            <TextView
-                android:id="@+id/bio_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/editUserPass"
-                android:fontFamily="@font/dayslater"
-                android:text="fghfhj"
-                android:textAllCaps="false"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/editUserPass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Email : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/email_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/airstrikelaser"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/editProfilepicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 
-            <TextView
-                android:id="@+id/editUserPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Phone : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/phone_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/editUserPass"
-                android:fontFamily="@font/airstrikelaser"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Location : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/location_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/airstrikelaser"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/roll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Jersey Number : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/roll_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/airstrikelaser"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/batch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Position : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/batch_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/airstrikelaser"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:fontFamily="@font/airstrikelaser"
-                android:text="Team : "
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp" />
-
-            <TextView
-                android:id="@+id/team_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/airstrikelaser"
-                android:textColor="@android:color/background_light"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/toUserQuestions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/black"
-            android:onClick="gotoQuestions"
-            android:src="@android:drawable/ic_menu_edit"
-            android:text="Question "
-            android:textSize="18sp" />
-    </LinearLayout>
-
-
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
