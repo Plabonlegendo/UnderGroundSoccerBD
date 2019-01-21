@@ -35,6 +35,7 @@ public class ShowTeam extends Activity {
     private DatabaseReference myRef2;
     private  String userID;
     private TextView text;
+    String finalTeamName;
     ArrayList<String> array  = new ArrayList<>();
     ListView listView;
 
@@ -98,11 +99,51 @@ public class ShowTeam extends Activity {
 
     private void showData(DataSnapshot dataSnapshot) {
 
-        String myTeamName = bundle.getString("haha");
+        Log.d(TAG, "show data te dhuksi");
+        final FirebaseUser hmmuser = userAuthentication.getCurrentUser();
+        Log.d(TAG, "showData: user: " + hmmuser);
+        String eemail = "";
+        if(hmmuser != null)
+        {
+            eemail= (String)hmmuser.getEmail();
+        }
+        Log.d(TAG, "showData: eemail: " + eemail);
+        for(int i=0; i<eemail.length();i+=1)
+        {
+            if(eemail.charAt(i)=='.') {
+                char[] chars = eemail.toCharArray();
+                chars[i] = '&';
+                eemail="";
+                eemail = String.valueOf(chars);
+            }
+        }
+        Log.d(TAG, "showData: eemail:*" + eemail+"*");
+
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+            String str = (String)ds.child("teamname").getValue(); //set the name
+
+            //display all the information
+            Log.d(TAG, "showData: name:*" + str+"*");
+            String achi = (String)ds.getKey();
+            Log.d(TAG, "showData: achi:*" + achi+"*");
+
+            //text=findViewById(R.id.textViewTeamName);
+            if(achi.equals(eemail)){
+                //text.setText(str);
+                finalTeamName=str;
+                break;
+            }
+
+        }
+
+        String myTeamName = finalTeamName;
         Log.d(TAG, "showData: name:*" +myTeamName+"*");
 
+        //text.findViewById(R.id.myText);
+        //text.setText(myTeamName);
 
-
+        myRef = mFirebaseDatabase.getReference("user_team");
 
         for(DataSnapshot ds : dataSnapshot.getChildren()){
 
