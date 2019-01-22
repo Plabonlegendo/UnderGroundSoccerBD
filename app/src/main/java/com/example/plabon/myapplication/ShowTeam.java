@@ -140,8 +140,8 @@ public class ShowTeam extends Activity {
         String myTeamName = finalTeamName;
         Log.d(TAG, "showData: name:*" +myTeamName+"*");
 
-        //text.findViewById(R.id.myText);
-        //text.setText(myTeamName);
+        text.findViewById(R.id.myText);
+        text.setText(myTeamName);
 
         myRef = mFirebaseDatabase.getReference("user_team");
 
