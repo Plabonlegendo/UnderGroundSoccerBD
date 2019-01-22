@@ -38,7 +38,7 @@ public class MainMenuActivity extends Activity {
         Teamhostmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainMenuActivity.this,Team.class));
+                startActivity(new Intent(MainMenuActivity.this,ShowTeam.class));
             }
         });
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +19,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class Team extends Activity {
@@ -32,9 +35,12 @@ public class Team extends Activity {
     private  String userID;
     private TextView text;
     private String finalTeamName="";
+    ArrayList<String> array  = new ArrayList<>();
+    ListView listView;
 
 
     private ListView mListView;
+    private DataSnapshot myDataSnaptshot;
 
 
     @Override
@@ -74,6 +80,7 @@ public class Team extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
+                myDataSnaptshot=dataSnapshot;
                 showData(dataSnapshot);
             }
 
@@ -107,6 +114,7 @@ public class Team extends Activity {
             }
         }
         Log.d(TAG, "showData: eemail:*" + eemail+"*");
+        //text=findViewById(R.id.textViewTeamName);
 
         for(DataSnapshot ds : dataSnapshot.getChildren()){
 
@@ -117,20 +125,57 @@ public class Team extends Activity {
             String achi = (String)ds.getKey();
             Log.d(TAG, "showData: achi:*" + achi+"*");
 
-            text=findViewById(R.id.textViewTeamName);
+
             if(achi.equals(eemail)){
-                text.setText(str);
+                //text.setText(str);
                 finalTeamName=str;
+                break;
             }
 
         }
+
+
+        myRef = mFirebaseDatabase.getReference("user_team");
+        Log.d(TAG, "yo");
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+            String str = (String)ds.child("teamname").getValue(); //set the name
+            if(str.equals(finalTeamName)){
+
+                String achi= (String)ds.child("name").getValue();
+                array.add(achi);
+                Log.d(TAG, "showData: name:*" +achi+"*");
+            }
+
+        }
+
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+        listView.setAdapter(adapter);
     }
 
-    public void showTeamPlayers(View view){
-        Intent i=new Intent(this,ShowTeam.class);
+    /*public void showTeamPlayers(View view){
+        /*Intent i=new Intent(this,ShowTeam.class);
         i.putExtra("haha",finalTeamName);
         startActivity(i);
-    }
+        myRef = mFirebaseDatabase.getReference("user_team");
+
+        for(DataSnapshot ds : myDataSnaptshot.getChildren()){
+
+            String str = (String)ds.child("teamname").getValue(); //set the name
+            if(str.equals(finalTeamName)){
+
+                String achi= (String)ds.child("name").getValue();
+                array.add(achi);
+                Log.d(TAG, "showData: name:*" +achi+"*");
+            }
+
+        }
+
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+        listView.setAdapter(adapter);
+    }*/
 
     @Override
     public void onStart() {
