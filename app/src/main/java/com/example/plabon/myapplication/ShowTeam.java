@@ -34,8 +34,8 @@ public class ShowTeam extends Activity {
     private DatabaseReference myRef;
     private DatabaseReference myRef2;
     private  String userID;
-    private TextView text;
-    String finalTeamName;
+    private TextView textView;
+    String finalTeamName="";
     ArrayList<String> array  = new ArrayList<>();
     ListView listView;
 
@@ -140,25 +140,31 @@ public class ShowTeam extends Activity {
         String myTeamName = finalTeamName;
         Log.d(TAG, "showData: name:*" +myTeamName+"*");
 
-        text.findViewById(R.id.myText);
-        text.setText(myTeamName);
+        if(myTeamName.length()==0) {
+            textView=findViewById(R.id.myText);
+            textView.setText("You are not a member of any team");
+        }
+        else{
+            textView=findViewById(R.id.myText);
+            textView.setText(myTeamName);
 
-        myRef = mFirebaseDatabase.getReference("user_team");
+            myRef = mFirebaseDatabase.getReference("user_team");
 
-        for(DataSnapshot ds : dataSnapshot.getChildren()){
+            for(DataSnapshot ds : dataSnapshot.getChildren()){
 
-            String str = (String)ds.child("teamname").getValue(); //set the name
-            if(str.equals(myTeamName)){
+                String str = (String)ds.child("teamname").getValue(); //set the name
+                if(str.equals(myTeamName)){
 
-                String achi= (String)ds.child("name").getValue();
-                array.add(achi);
-                Log.d(TAG, "showData: name:*" +achi+"*");
+                    String achi= (String)ds.child("name").getValue();
+                    array.add(achi);
+                    Log.d(TAG, "showData: name:*" +achi+"*");
+                }
+
             }
 
+            ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+            listView.setAdapter(adapter);
         }
-
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
-        listView.setAdapter(adapter);
 
     }
 
