@@ -13,6 +13,7 @@ public class MainMenuActivity extends Activity {
     Button EventHostMenu;
     Button Playerprofile;
     Button Teamhostmenu;
+    Button EventFeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainMenuActivity extends Activity {
         EventHostMenu = findViewById(R.id.EventHostButton);
         Playerprofile = findViewById(R.id.profileButton);
         Teamhostmenu = findViewById(R.id.TeamButton);
+        EventFeed = findViewById(R.id.EventButton);
 
         EventHostMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +41,12 @@ public class MainMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainMenuActivity.this,ShowTeam.class));
+            }
+        });
+        EventFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenuActivity.this,EventFeed.class));
             }
         });
 

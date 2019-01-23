@@ -26,6 +26,10 @@
         <activity android:name=".Eventform" />
         <activity android:name=".Frontpage" />
         <activity android:name=".ShowTeam" />
+        <activity android:name=".EventFeed" />
+        <activity android:name=".MyParticipation" />
+        <activity android:name=".OngoingEvents" />
+        <activity android:name=".UpcomingEvents" />
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu" />
