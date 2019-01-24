@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#03382c"
+    android:padding="10dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/myText"
@@ -10,7 +12,13 @@
         android:layout_height="wrap_content"
         android:text="Team Players:"
         android:textAlignment="center"
-        android:textSize="25sp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/background_light"
+        android:fontFamily="@font/dopestyle"
+        android:textSize="35sp" />
 
     <ListView
         android:id="@+id/listview"
