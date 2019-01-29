@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:background="#000000"
+            android:background="@android:color/darker_gray"
             android:onClick="toEditProfilePicture"
             android:text="Edit profile picture"
             app:srcCompat="@android:drawable/ic_menu_camera" />
