@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,10 +22,12 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PLAYER SIGN UP FORM"
+            android:fontFamily="@font/dopestyle"
+            android:text="sign up form"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textAppearance="@android:style/TextAppearance.Holo.DialogWindowTitle"
+            android:textColor="@android:color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -272,6 +274,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/airstrikelaser"
                 android:text="Cancel" />
 
 
@@ -280,6 +283,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/airstrikelaser"
                 android:text="Submit" />
 
 
@@ -287,4 +291,4 @@
 
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

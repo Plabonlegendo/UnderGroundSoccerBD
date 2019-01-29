@@ -47,7 +47,7 @@ public class Edituserprofile extends Activity {
     EditText editUserPhoneNumber;
     EditText editUserBio;
     Button doneEditButton;
-    ImageButton selectImage;
+    Button selectImage;
     ImageView editProfilePicture;
 
     String dpURL;

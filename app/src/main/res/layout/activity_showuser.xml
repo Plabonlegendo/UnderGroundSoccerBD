@@ -38,7 +38,7 @@
             android:background="#000000"
             android:onClick="toEditProfilePicture"
             android:text="Edit profile picture"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:srcCompat="@android:drawable/ic_menu_camera" />
 
         <TextView
@@ -48,6 +48,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/dopestyle"
+            android:gravity="bottom"
+            android:text="abc"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/background_light"
