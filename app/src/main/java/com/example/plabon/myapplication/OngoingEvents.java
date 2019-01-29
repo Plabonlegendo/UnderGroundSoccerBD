@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -40,11 +41,9 @@ public class OngoingEvents extends Activity {
     private  String userID;
     private TextView textView;
     public String currTime;
-    ArrayList<String> array  = new ArrayList<>();
+    ArrayList<EventInfo> array  = new ArrayList<>();
     ListView listView;
 
-
-    private ListView mListView;
     Bundle bundle;
 
 
@@ -53,7 +52,7 @@ public class OngoingEvents extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ongoing_events);
         calculateCurrentTime();
-        //listView=(ListView) findViewById(R.id.listview);
+
         bundle = getIntent().getExtras();
 
         Log.d(TAG,"Dhuksi\n");
@@ -113,20 +112,67 @@ public class OngoingEvents extends Activity {
             String startingTime = (String)ds.child("startingtime").getValue();
             String endingDate = (String)ds.child("endingdate").getValue();
             String endingTime = (String)ds.child("endingtime").getValue();
+            String bestAttacker;
+            String bestDefender;
+            String bestGoalkeeper;
+            String bestMidfielder;
+            String bestPlayer;
+            String eventEmail;
+            String eventLocation;
+            String eventName;
+            String phoneNumber;
 
             if(dateChecker(startingDate, startingTime, endingDate, endingTime)==1){
                 Log.d(TAG,"milse");
+                bestAttacker = (String)ds.child("bestattacker").getValue();
+                bestDefender = (String)ds.child("bestdefender").getValue();
+                bestGoalkeeper = (String)ds.child("bestgoalkeeper").getValue();
+                bestMidfielder = (String)ds.child("bestmidfielder").getValue();
+                bestPlayer = (String)ds.child("bestplayer").getValue();
+                eventEmail = (String)ds.child("eventEmail").getValue();
+                eventLocation = (String)ds.child("eventlocation").getValue();
+                eventName = (String)ds.child("eventname").getValue();
+                phoneNumber = (String)ds.child("phonenumber").getValue();
+
+                EventInfo eventInfo = new EventInfo(bestAttacker, bestDefender, bestGoalkeeper, bestMidfielder, bestPlayer,
+                        endingDate, endingTime, eventEmail, eventLocation, eventName, phoneNumber, startingDate, startingTime);
+
+                array.add(eventInfo);
 
             }
 
         }
 
 
+        listView=(ListView) findViewById(R.id.listview);
 
+        MyAdapter adapter = new MyAdapter(this, array);
+        listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(OngoingEvents.this, "Hello", Toast.LENGTH_LONG).show();
 
-        //ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
-        //listView.setAdapter(adapter);
+                Intent intent = new Intent(OngoingEvents.this, OngoingEventDetail.class);
+                intent.putExtra("bestAttacker", array.get(position).getBestAttacker());
+                intent.putExtra("bestDefender", array.get(position).getBestDefender());
+                intent.putExtra("bestGoalkeeper", array.get(position).getBestGoalkeeper());
+                intent.putExtra("bestMidfielder", array.get(position).getBestMidfielder());
+                intent.putExtra("bestPlayer", array.get(position).getBestPlayer());
+                intent.putExtra("endingDate", array.get(position).getEndingDate());
+                intent.putExtra("endingTime", array.get(position).getEndingTime());
+                intent.putExtra("eventEmail", array.get(position).getEventEmail());
+                intent.putExtra("eventLocation", array.get(position).getEventLocation());
+                intent.putExtra("eventName", array.get(position).getEventName());
+                intent.putExtra("phoneNumber", array.get(position).getPhoneNumber());
+                intent.putExtra("startingDate", array.get(position).getStartingDate());
+                intent.putExtra("startingTime", array.get(position).getStartingTime());
+
+                startActivity(intent);
+
+            }
+        });
 
     }
 

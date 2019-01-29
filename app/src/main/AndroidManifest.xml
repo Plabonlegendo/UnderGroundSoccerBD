@@ -30,6 +30,7 @@
         <activity android:name=".MyParticipation" />
         <activity android:name=".OngoingEvents" />
         <activity android:name=".UpcomingEvents" />
+        <activity android:name=".OngoingEventDetail" />
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu" />
