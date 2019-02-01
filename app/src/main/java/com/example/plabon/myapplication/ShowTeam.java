@@ -162,7 +162,7 @@ public class ShowTeam extends Activity {
 
             }
 
-            ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+            ArrayAdapter adapter = new ArrayAdapter(this,R.layout.teamadapt,array);
             listView.setAdapter(adapter);
         }
 
