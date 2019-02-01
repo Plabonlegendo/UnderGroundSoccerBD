@@ -13,4 +13,3 @@
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:textColor="@android:color/darker_gray"
     android:textSize="26sp" />
-
