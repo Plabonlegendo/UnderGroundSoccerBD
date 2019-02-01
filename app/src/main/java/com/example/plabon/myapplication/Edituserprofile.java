@@ -43,7 +43,7 @@ public class Edituserprofile extends Activity {
 
     private FirebaseUser currentuser;
     private FirebaseAuth showSingleUserAuth;
-    private DatabaseReference editUserDatabaseRef, myRef,Teamref;
+    private DatabaseReference editUserDatabaseRef, myRef,Teamref,addteam;
     private StorageReference editUserStorageReference;
 
     EditText editUserName;
@@ -77,6 +77,8 @@ public class Edituserprofile extends Activity {
         myRef = editUserDatabaseRef.child(Useremail.replace('.','&'));
         editUserStorageReference = FirebaseStorage.getInstance().getReference("profilepictures");
         Teamref = FirebaseDatabase.getInstance().getReference("Teams");
+        addteam = FirebaseDatabase.getInstance().getReference("user_team").child(Useremail.replace('.','&')).child("teamname");
+
 
         editUserName = findViewById(R.id.editUserName);
         editUserPosition = findViewById(R.id.editUserPosition);
@@ -100,8 +102,8 @@ public class Edituserprofile extends Activity {
                     teams.add(teamName);
 
                 }
-                ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(Edituserprofile.this, android.R.layout.simple_spinner_item, teams);
-                teamsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(Edituserprofile.this, R.layout.myspinner, teams);
+                teamsAdapter.setDropDownViewResource(R.layout.myspinner);
                 teamprofile.setAdapter(teamsAdapter);
             }
 
@@ -208,6 +210,7 @@ public class Edituserprofile extends Activity {
                                     myRef.setValue(changedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
+                                            addteam.setValue(changedUser.getTeam());
                                             Toast.makeText(Edituserprofile.this,"Update Done",Toast.LENGTH_LONG).show();
                                             finish();
                                         }
@@ -221,12 +224,13 @@ public class Edituserprofile extends Activity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            System.out.println("Picture Hoynai");
+                           // System.out.println("Picture Hoynai");
                             Toast.makeText(Edituserprofile.this,"Failed",Toast.LENGTH_LONG).show();
                             doneEditButton.setVisibility(View.VISIBLE);
                             myRef.setValue(changedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
+                                    addteam.setValue(changedUser.getTeam());
                                     Toast.makeText(Edituserprofile.this,"Update Done",Toast.LENGTH_LONG).show();
                                     finish();
                                 }
@@ -240,6 +244,7 @@ public class Edituserprofile extends Activity {
             myRef.setValue(changedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
+                    addteam.setValue(changedUser.getTeam());
                     Toast.makeText(Edituserprofile.this,"Update Done",Toast.LENGTH_LONG).show();
                     finish();
                 }
