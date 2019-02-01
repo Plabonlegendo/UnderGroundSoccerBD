@@ -95,7 +95,7 @@ public class Register extends Activity {
 
                 }
                 ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(Register.this, android.R.layout.simple_spinner_item, teams);
-                teamsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                teamsAdapter.setDropDownViewResource(R.layout.myspinner);
                 TeamSpinner.setAdapter(teamsAdapter);
             }
 

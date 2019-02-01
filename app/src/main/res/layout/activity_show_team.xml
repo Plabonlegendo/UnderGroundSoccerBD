@@ -7,6 +7,36 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView11"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/airstrikelaser"
+
+        android:gravity="center_vertical"
+        android:text="YOUR TEAM:  "
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Spinner
+
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Create new team"
+        android:textColor="@android:color/background_light" />
+
+    <TextView
         android:id="@+id/myText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +54,5 @@
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </LinearLayout>

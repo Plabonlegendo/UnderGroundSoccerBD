@@ -36,6 +36,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:background="@android:color/darker_gray"
+            android:fontFamily="@font/airstrikelaser"
             android:onClick="toEditProfilePicture"
             android:text="Edit profile picture"
             app:srcCompat="@android:drawable/ic_menu_camera" />
@@ -178,7 +179,8 @@
 
                 android:id="@+id/profilespinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray" />
         </LinearLayout>
 
         <LinearLayout

@@ -47,6 +47,7 @@ public class MyAdapter extends ArrayAdapter<EventInfo> {
 
         eventName.setText(event.getEventName());
 
+
         eventTime.setText(event.getStartingDate());
 
         // Return the completed view to render on screen
