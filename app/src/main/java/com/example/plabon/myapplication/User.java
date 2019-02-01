@@ -11,22 +11,34 @@ public class User {
     private String bio;
     private String Location;
     private String foot;
+    private String team;
+
 
     public User() {
     }
 
-    public User(String email, String name, String position, String jerseynumber, String phoneNumber,String Location,String foot, String dpURL, String isModerator, String bio) {
+    public User(String email, String name, String position, String jerseynumber, String phoneNumber,String Location,String team,String foot, String dpURL, String isModerator, String bio) {
         this.email = email;
         this.name = name;
         this.position = position;
         this.jerseynumber = jerseynumber;
         this.phoneNumber = phoneNumber;
         this.Location = Location;
+        this.team = team;
         this.foot = foot;
         this.dpURL = dpURL;
         this.isModerator = isModerator;
         this.bio = bio;
     }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
     public void setLocation(String location){this.Location= location;}
     public String getLocation(){return Location;}
 
