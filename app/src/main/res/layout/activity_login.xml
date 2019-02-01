@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:fontFamily="@font/airstrikelaser"
-            android:text="Forgot Password?"
+            android:text="Forgot Password? "
             android:textColor="@android:color/background_light"
             android:textStyle="italic"
 
