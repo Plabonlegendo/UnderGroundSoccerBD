@@ -17,7 +17,7 @@
         android:text="YOUR TEAM:  "
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <Spinner
@@ -34,6 +34,15 @@
         android:layout_gravity="center"
         android:fontFamily="@font/airstrikelaser"
         android:text="Create new team"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Update"
         android:textColor="@android:color/background_light" />
 
     <TextView

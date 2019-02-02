@@ -86,7 +86,7 @@ public class ShowTeam extends Activity {
                     teams.add(teamName);
 
                 }
-                ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(ShowTeam.this, R.layout.myspinner, teams);
+                ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(ShowTeam.this, R.layout.teamspinner, teams);
                 teamsAdapter.setDropDownViewResource(R.layout.myspinner);
                 showteamspinner.setAdapter(teamsAdapter);
             }
@@ -182,7 +182,7 @@ public class ShowTeam extends Activity {
         }
         else{
             textView=findViewById(R.id.myText);
-            textView.setText(myTeamName);
+            textView.setText("Squad of "+myTeamName);
 
             myRef = mFirebaseDatabase.getReference("user_team");
 
