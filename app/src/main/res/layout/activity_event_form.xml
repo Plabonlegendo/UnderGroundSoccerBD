@@ -19,12 +19,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/dopestyle"
             android:text="New Event Form"
             android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textAppearance="@android:style/TextAppearance.Holo.DialogWindowTitle"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textSize="32sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -255,7 +253,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel" />
+                android:fontFamily="@font/airstrikelaser"
+                android:text="Cancel"
+                android:textSize="24sp" />
 
             <Button
 
@@ -263,7 +263,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Submit" />
+                android:fontFamily="@font/airstrikelaser"
+                android:text="Submit"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>

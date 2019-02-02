@@ -87,7 +87,7 @@ public class Eventform extends Activity {
         //Endingdate = findViewById(R.id.EventEndDateEditText);
         eendReminderTime = findViewById(R.id.endtime);
 
-        passfield = findViewById(R.id.eventPasswordEditText);
+
         submit = findViewById(R.id.submitButton);
         cancel = findViewById(R.id.cancelButton);
 

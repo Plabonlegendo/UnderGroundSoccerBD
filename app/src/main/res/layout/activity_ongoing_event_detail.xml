@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#03382c"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Event Name:"
+        android:background="@android:color/darker_gray"
+        android:fontFamily="@font/dopestyle"
+        android:text="Event Name: "
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/ename"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -20,7 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Event Email:"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Event Email: "
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/eemail"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -29,7 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Phone No:"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Phone No: "
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/ephone"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -38,7 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Location:"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Location: "
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/elocation"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -47,16 +61,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Event Started:"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Event Started: "
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/estart"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Event End:"
+        android:fontFamily="@font/airstrikelaser"
+        android:text="Event End: "
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/eend"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,10 +84,14 @@
         android:id="@+id/ename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:background="@android:color/darker_gray"
+        android:fontFamily="@font/dopestyle"
         android:text="TextView"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -76,10 +100,13 @@
         android:id="@+id/eemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/ename" />
@@ -88,10 +115,13 @@
         android:id="@+id/ephone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/eemail" />
@@ -100,10 +130,13 @@
         android:id="@+id/elocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/ephone" />
@@ -112,10 +145,13 @@
         android:id="@+id/estart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/elocation" />
@@ -124,10 +160,13 @@
         android:id="@+id/eend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/estart" />
