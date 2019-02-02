@@ -28,7 +28,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="Event Email: "
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/eemail"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,7 +40,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="Phone No: "
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/ephone"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,7 +52,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="Location: "
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/elocation"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,7 +64,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="Event Started: "
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/estart"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -76,7 +76,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="Event End: "
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/eend"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -106,7 +106,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/ename" />
@@ -121,7 +121,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/eemail" />
@@ -136,7 +136,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/ephone" />
@@ -151,7 +151,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/elocation" />
@@ -166,7 +166,7 @@
         android:fontFamily="@font/airstrikelaser"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/estart" />

@@ -3,6 +3,8 @@ package com.example.plabon.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
@@ -52,4 +54,10 @@ public class MainMenuActivity extends Activity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main_menu, menu);
+        return true;
+    }
 }
