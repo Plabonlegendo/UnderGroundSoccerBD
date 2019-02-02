@@ -97,7 +97,7 @@ public class Edituserprofile extends Activity {
 
                 final List<String> teams = new ArrayList<String>();
                 for (DataSnapshot TeamSnapshot: dataSnapshot.getChildren()) {
-                    String teamName = TeamSnapshot.getValue(String.class);
+                    String teamName = TeamSnapshot.child("teamname").getValue(String.class);
 
                     teams.add(teamName);
 

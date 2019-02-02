@@ -5,6 +5,11 @@ public class Teamuserform {
     private String contact;
     private String location;
 
+    public Teamuserform(String teamname)
+    {
+        this.teamname = teamname;
+    }
+
     public Teamuserform(String teamname, String contact, String location) {
         this.teamname = teamname;
         this.contact = contact;

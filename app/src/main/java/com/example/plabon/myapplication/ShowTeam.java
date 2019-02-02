@@ -30,19 +30,21 @@ public class ShowTeam extends Activity {
 
     //add Firebase Database stuff
     private FirebaseAuth userAuthentication;
+    private FirebaseUser currentuser;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference myRef,Teamref;
+    private DatabaseReference myRef,Teamref,addteam;
     private DatabaseReference myRef2;
     private  String userID;
     private TextView textView;
     private Spinner showteamspinner;
     private Button createteam;
+    private Button updateteam;
     String finalTeamName="";
     ArrayList<String> array  = new ArrayList<>();
     ListView listView;
-
+    String Useremail;
 
     private ListView mListView;
     Bundle bundle;
@@ -59,12 +61,17 @@ public class ShowTeam extends Activity {
 
         mAuth = FirebaseAuth.getInstance();
         userAuthentication = FirebaseAuth.getInstance();
+        currentuser = userAuthentication.getCurrentUser();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+        Useremail = currentuser.getEmail();
         myRef = mFirebaseDatabase.getReference("user_team");
         FirebaseUser user = mAuth.getCurrentUser();
         showteamspinner = findViewById(R.id.showteamspinner);
         createteam = findViewById(R.id.createnewteambutton);
+        updateteam = findViewById(R.id.updateteambutton);
         Teamref = FirebaseDatabase.getInstance().getReference("Teams");
+        addteam = FirebaseDatabase.getInstance().getReference("user_team").child(Useremail.replace('.','&')).child("teamname");
+
         userID = user.getUid();
 
 
@@ -75,13 +82,30 @@ public class ShowTeam extends Activity {
             }
         });
 
+        updateteam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String steam;
+
+                if(showteamspinner.getSelectedItem().toString().equals("none")) steam = "";
+                else steam = showteamspinner.getSelectedItem().toString();
+
+                addteam.setValue(steam);
+                Intent intent = new Intent(ShowTeam.this,ShowTeam.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+
+            }
+        });
+
         Teamref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 final List<String> teams = new ArrayList<String>();
                 for (DataSnapshot TeamSnapshot: dataSnapshot.getChildren()) {
-                    String teamName = TeamSnapshot.getValue(String.class);
+                    String teamName = TeamSnapshot.child("teamname").getValue(String.class);
 
                     teams.add(teamName);
 

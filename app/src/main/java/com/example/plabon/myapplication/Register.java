@@ -89,7 +89,7 @@ public class Register extends Activity {
 
                 final List<String> teams = new ArrayList<String>();
                 for (DataSnapshot TeamSnapshot: dataSnapshot.getChildren()) {
-                    String teamName = TeamSnapshot.getValue(String.class);
+                    String teamName = TeamSnapshot.child("teamname").getValue(String.class);
 
                     teams.add(teamName);
 
@@ -193,7 +193,7 @@ public class Register extends Activity {
         if(TextUtils.isEmpty(phoneNumber.getText().toString().trim())) sphoneNumber = "null";
         else sphoneNumber = phoneNumber.getText().toString().trim();
 
-       if(TeamSpinner.getSelectedItem().toString().equals("none")) steam = "null";
+       if(TeamSpinner.getSelectedItem().toString().equals("none")) steam = "";
        else steam = TeamSpinner.getSelectedItem().toString();
 
 
