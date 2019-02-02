@@ -35,6 +35,7 @@ public class Showuser extends Activity {
     TextView phoneNumber_value;
     TextView location_value;
     TextView bio_value;
+    TextView team_value;
     ImageView profilePicture;
     ImageButton edit_profilePhoto_button;
     ImageButton edit_profile;
@@ -55,6 +56,7 @@ public class Showuser extends Activity {
         phoneNumber_value = findViewById(R.id.phone_value);
         location_value = findViewById(R.id.location_value);
         bio_value = findViewById(R.id.bio_value);
+        team_value = findViewById(R.id.team_value);
         profilePicture = findViewById(R.id.singleUser_profile_image);
         edit_profilePhoto_button = findViewById(R.id.editProfilepicture);
         edit_profile = findViewById(R.id.Editprofile);
@@ -78,6 +80,7 @@ public class Showuser extends Activity {
                 jerseynumber_value.setText(user.getJerseynumber());
                 phoneNumber_value.setText(user.getPhoneNumber());
                 location_value.setText(user.getLocation());
+                team_value.setText(user.getTeam());
                 bio_value.setText(user.getBio());
                 System.out.println("@@@@@@@@@" + user.getDpURL());
                 Glide.with(Showuser.this)

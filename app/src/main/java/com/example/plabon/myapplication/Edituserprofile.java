@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -31,6 +33,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Edituserprofile extends Activity {
 
     String userPath;
@@ -38,7 +43,7 @@ public class Edituserprofile extends Activity {
 
     private FirebaseUser currentuser;
     private FirebaseAuth showSingleUserAuth;
-    private DatabaseReference editUserDatabaseRef, myRef;
+    private DatabaseReference editUserDatabaseRef, myRef,Teamref,addteam;
     private StorageReference editUserStorageReference;
 
     EditText editUserName;
@@ -47,6 +52,7 @@ public class Edituserprofile extends Activity {
     EditText editUserLocation;
     EditText editUserPhoneNumber;
     EditText editUserBio;
+    Spinner teamprofile;
     Button doneEditButton;
     Button selectImage;
     ImageView editProfilePicture;
@@ -70,6 +76,9 @@ public class Edituserprofile extends Activity {
         editUserDatabaseRef = FirebaseDatabase.getInstance().getReference("users");
         myRef = editUserDatabaseRef.child(Useremail.replace('.','&'));
         editUserStorageReference = FirebaseStorage.getInstance().getReference("profilepictures");
+        Teamref = FirebaseDatabase.getInstance().getReference("Teams");
+        addteam = FirebaseDatabase.getInstance().getReference("user_team").child(Useremail.replace('.','&')).child("teamname");
+
 
         editUserName = findViewById(R.id.editUserName);
         editUserPosition = findViewById(R.id.editUserPosition);
@@ -80,6 +89,29 @@ public class Edituserprofile extends Activity {
         doneEditButton = findViewById(R.id.editUserDone);
         selectImage = findViewById(R.id.editUserSelectButton);
         editProfilePicture = findViewById(R.id.editUserProfileImage);
+        teamprofile = findViewById(R.id.profilespinner);
+
+        Teamref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                final List<String> teams = new ArrayList<String>();
+                for (DataSnapshot TeamSnapshot: dataSnapshot.getChildren()) {
+                    String teamName = TeamSnapshot.getValue(String.class);
+
+                    teams.add(teamName);
+
+                }
+                ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(Edituserprofile.this, R.layout.myspinner, teams);
+                teamsAdapter.setDropDownViewResource(R.layout.myspinner);
+                teamprofile.setAdapter(teamsAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         //doneEditButton.setVisibility(View.GONE);
 
@@ -149,10 +181,14 @@ public class Edituserprofile extends Activity {
 
         final User changedUser = user;
 
+
         changedUser.setName(editUserName.getText().toString().trim());
         changedUser.setPosition(editUserPosition.getText().toString().trim());
         changedUser.setJerseynumber(editUserJersey.getText().toString().trim());
         changedUser.setLocation(editUserLocation.getText().toString().trim());
+        if(teamprofile.getSelectedItem().toString().equals("none")) changedUser.setTeam("");
+        else changedUser.setTeam(teamprofile.getSelectedItem().toString());
+
         changedUser.setPhoneNumber(editUserPhoneNumber.getText().toString().trim());
         changedUser.setDpURL(dpURL);
         changedUser.setBio(editUserBio.getText().toString().trim());
@@ -174,6 +210,7 @@ public class Edituserprofile extends Activity {
                                     myRef.setValue(changedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
+                                            addteam.setValue(changedUser.getTeam());
                                             Toast.makeText(Edituserprofile.this,"Update Done",Toast.LENGTH_LONG).show();
                                             finish();
                                         }
@@ -187,12 +224,13 @@ public class Edituserprofile extends Activity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            System.out.println("Picture Hoynai");
+                           // System.out.println("Picture Hoynai");
                             Toast.makeText(Edituserprofile.this,"Failed",Toast.LENGTH_LONG).show();
                             doneEditButton.setVisibility(View.VISIBLE);
                             myRef.setValue(changedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
+                                    addteam.setValue(changedUser.getTeam());
                                     Toast.makeText(Edituserprofile.this,"Update Done",Toast.LENGTH_LONG).show();
                                     finish();
                                 }
@@ -206,6 +244,7 @@ public class Edituserprofile extends Activity {
             myRef.setValue(changedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
+                    addteam.setValue(changedUser.getTeam());
                     Toast.makeText(Edituserprofile.this,"Update Done",Toast.LENGTH_LONG).show();
                     finish();
                 }

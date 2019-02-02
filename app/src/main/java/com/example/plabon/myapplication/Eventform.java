@@ -73,7 +73,7 @@ public class Eventform extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_form);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("events");
+        databaseReference = FirebaseDatabase.getInstance().getReference("myevent");
         userAuthentication = FirebaseAuth.getInstance();
 
 
@@ -253,7 +253,9 @@ public class Eventform extends Activity {
         else
         {
             event Event = new event(seventname,shostemail,seventlocation,sphonenumber,sstartingtime,sstartingdate,sendingtime,sendingdate,"nothing yet","nothing yet","nothing yet","nothing yet","nothing yet");
-            databaseReference.child(Email.replace('.','&')).push().setValue(Event);
+            databaseReference.push().setValue(Event);
+            Intent intent = new Intent(Eventform.this, MainMenuActivity.class);
+            startActivity(intent);
 
         }
 

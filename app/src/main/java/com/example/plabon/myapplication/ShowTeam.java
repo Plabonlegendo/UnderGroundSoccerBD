@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ShowTeam extends Activity {
@@ -31,10 +33,12 @@ public class ShowTeam extends Activity {
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef,Teamref;
     private DatabaseReference myRef2;
     private  String userID;
     private TextView textView;
+    private Spinner showteamspinner;
+    private Button createteam;
     String finalTeamName="";
     ArrayList<String> array  = new ArrayList<>();
     ListView listView;
@@ -58,8 +62,40 @@ public class ShowTeam extends Activity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference("user_team");
         FirebaseUser user = mAuth.getCurrentUser();
+        showteamspinner = findViewById(R.id.showteamspinner);
+        createteam = findViewById(R.id.createnewteambutton);
+        Teamref = FirebaseDatabase.getInstance().getReference("Teams");
         userID = user.getUid();
 
+
+        createteam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShowTeam.this,Teamform.class));
+            }
+        });
+
+        Teamref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                final List<String> teams = new ArrayList<String>();
+                for (DataSnapshot TeamSnapshot: dataSnapshot.getChildren()) {
+                    String teamName = TeamSnapshot.getValue(String.class);
+
+                    teams.add(teamName);
+
+                }
+                ArrayAdapter<String> teamsAdapter = new ArrayAdapter<String>(ShowTeam.this, R.layout.myspinner, teams);
+                teamsAdapter.setDropDownViewResource(R.layout.myspinner);
+                showteamspinner.setAdapter(teamsAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
