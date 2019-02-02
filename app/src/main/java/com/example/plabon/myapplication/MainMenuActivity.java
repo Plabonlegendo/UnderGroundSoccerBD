@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.deser.std.FromStringDeserializer;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenuActivity extends Activity {
 
@@ -18,6 +19,8 @@ public class MainMenuActivity extends Activity {
     Button Playerprofile;
     Button Teamhostmenu;
     Button EventFeed;
+
+    FirebaseAuth currentlyLoggedIn = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +68,16 @@ public class MainMenuActivity extends Activity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            
+            case R.id.Logout :
+                logoutuser();
 
         }
-
         return true;
+    }
+    private void logoutuser(){
+        currentlyLoggedIn.signOut();
+        Intent intent = new Intent(MainMenuActivity.this,AuthActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }

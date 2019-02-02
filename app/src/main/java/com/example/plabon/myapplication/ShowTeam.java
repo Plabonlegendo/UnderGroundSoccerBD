@@ -91,7 +91,7 @@ public class ShowTeam extends Activity {
                 else steam = showteamspinner.getSelectedItem().toString();
 
                 addteam.setValue(steam);
-                Intent intent = new Intent(ShowTeam.this,ShowTeam.class);
+                Intent intent = new Intent(ShowTeam.this,MainMenuActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
